@@ -41,6 +41,8 @@ uploadForm.onsubmit = event => {
             if(request.readyState == 4 && request.status == 200) {
                 //output response message
                 uploadForm.querySelector(".result").innerHTML = request.responseText
+                // uploadForm.querySelector("button").disabled = false
+                // uploadForm.querySelector("button").innerHTML = "Upload"
             }
         }
 
