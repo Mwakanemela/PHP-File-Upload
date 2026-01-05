@@ -15,7 +15,8 @@ uploadForm.onsubmit = event => {
     //make sure files are selected
     if(!filesInput.files.length) {
         uploadForm.querySelector(".result").innerHTML = "Please select a file!"
-    }else {
+    }
+    else {
         let uploadFormData = new FormData(uploadForm)
 
         //initialize AJAX
@@ -41,8 +42,12 @@ uploadForm.onsubmit = event => {
             if(request.readyState == 4 && request.status == 200) {
                 //output response message
                 uploadForm.querySelector(".result").innerHTML = request.responseText
-                // uploadForm.querySelector("button").disabled = false
-                // uploadForm.querySelector("button").innerHTML = "Upload"
+                // ✅ Reset UI back to original state
+                uploadForm.querySelector("button").disabled = false;
+                uploadForm.querySelector("button").innerHTML = "Upload";
+                uploadForm.querySelector(".progress").style.background = "";
+                uploadForm.querySelector("label").innerHTML = "Select files ..."
+                uploadForm.reset();
             }
         }
 
